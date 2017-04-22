@@ -64,12 +64,9 @@ class StdOutListener(tweepy.StreamListener):
 
         # Push into kafka
         producer.send(mytopic, data1)
+        # Keep track
         print data1["id_str"]
-        # print json.dumps(data2, indent=4, sort_keys=True)
-        # except Exception, e:
-        #
-        #     print 'Not sent!'
-        #     return True
+
 
         return True
 
@@ -104,8 +101,8 @@ if __name__ == '__main__':
     counter = 0
     while True:
         try:
+        	# Get text with English and location features only
             stream = tweepy.Stream(auth, listener).filter(languages=["en"], locations=[-180.0, -90.0, 180.0, 90.0])
 
         except Exception, e:
             # twitter filter is unstable, avoid interruption
-            continue
