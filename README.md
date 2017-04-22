@@ -8,8 +8,9 @@
 # Guide
 In console, type in:
   python ..\producer.py
+  
 Then:
-  python ..\consumer.py
+  python ..\worker.py
   
 # Hints:
 This consumer is in a consumer group, you can just copy and paste and run multiple consumers in parallel. Make sure you pre-assigned enough partitions before using the scripts. For example, if you open 3 consumers in parallel, you need to have at least 3 partitions in your topic.
